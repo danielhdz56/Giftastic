@@ -64,9 +64,6 @@ function stillToGif(){
 		console.log('I am turning it on')
 		$(this).attr('src', gif)
 	}
-	
-	
-	
 }
 //Make the submit button perform a function
 $("#add-meme").on("click", function(event) {
