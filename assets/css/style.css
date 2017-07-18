@@ -1,0 +1,15 @@
+.w-100 {
+	width: 100%;
+}
+.submit-primary {
+	background: #337ab7;
+	border-color: #2e6da4;
+	color: #fff;
+}
+.mt-2 {
+	margin-top: 2rem;
+}
+.form-input {
+	width: 200px;
+	border: 1px solid gainsboro;
+}
