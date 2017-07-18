@@ -32,6 +32,7 @@ $.get(memeAPI, function(res){
 });
 // displayMemeGiphys function re-renders the HTML to display the appropriate content
 function displayMemeGiphys() {
+	$('#images').empty();
 	var meme = $(this).attr("data-name");
 	var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=b2ec119853c2410aa76aced2021ac552&q=" + meme + "&limit=10&offset=0&rating=PG-13&lang=en";
 	// Creates AJAX call for the specific meme button being clicked
@@ -39,30 +40,34 @@ function displayMemeGiphys() {
 		url: queryURL,
 	  	method: "GET"
 	}).done(function(response) {
-		console.log(response)
-		// var h1 = $('<h1/>');
-		// $('#movies-view').append(h1);
-		// $(h1).append(response.Title);
-		// var p1 = $('<p/>');
-		// $('#movies-view').append(p1);
-		// $(p1).append(response.Rated);
-		// var p2 = $('<p/>');
-		// $('#movies-view').append(p2);
-		// $(p2).append(response.Released);
-		// var p3 = $('<p/>');
-		// $('#movies-view').append(p3);
-		// $(p3).append(response.Plot);
-		// var img = $('<img/>');
-		// $('#movies-view').append(img);
-		// img.attr('200px');
-		// $(img).attr('src', response.Poster);
+		console.log(response);
+		for(i=0;i<response.data.length;i++){
+			var column = $('<div>');
+			column.addClass('col-xs-12 col-sm-6');
+			$('#images').append(column);
+			var image = $('<img>');
+			image.addClass('m-0a still')
+			image.attr('src', response.data[i].images.original_still.url);
+			image.attr('data-still', response.data[i].images.original_still.url);
+			image.attr('data-gif', response.data[i].images.original.url);
+			$(column).append(image);
+		}
 	});
 }
-
-
-
-
-
+function stillToGif(){
+	var still = $(this).attr('data-still');
+	var gif = $(this).attr('data-gif');
+	if(gif === $(this).attr('src')){
+		$(this).attr('src', still)
+	}
+	else {
+		console.log('I am turning it on')
+		$(this).attr('src', gif)
+	}
+	
+	
+	
+}
 //Make the submit button perform a function
 $("#add-meme").on("click", function(event) {
 	event.preventDefault();
@@ -75,5 +80,7 @@ $("#add-meme").on("click", function(event) {
 	// Calling renderButtons which handles the processing of our meme array
 	renderButtons();
 });
-// Adding click event listeners to all elements with a class of "movie"
+// Adding click event listeners to all elements with a class of "meme"
 $(document).on("click", ".meme", displayMemeGiphys);
+// Adding click event listeners to all elements with a class of "still"
+$(document).on("click", ".still", stillToGif);

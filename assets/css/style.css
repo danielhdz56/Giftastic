@@ -1,5 +1,15 @@
+body {
+	background: black;
+	color: whitesmoke;
+}
+#meme-input {
+	color: black;
+}
 .w-100 {
 	width: 100%;
+}
+.m-0a {
+	margin: 0 auto;
 }
 .submit-primary {
 	background: #337ab7;
@@ -12,4 +22,9 @@
 .form-input {
 	width: 200px;
 	border: 1px solid gainsboro;
+}
+.still {
+	height: 200px;
+	display: block;
+	max-width: 100%;
 }
