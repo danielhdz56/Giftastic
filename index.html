@@ -11,33 +11,23 @@
 		<link rel="stylesheet" href="assets/css/style.css">
 	</head>
 	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h1>Giftastic</h1>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid py-1">
+		    	<div class="navbar-header">
+		      		<a class="navbar-brand" href="#">Giftastic</a>
+		    	</div>
+	    		<div class="ui-widget">
+					<form id="form" class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<button type="submit" id="add-meme" value="Submit" class="submit-primary btn btn-default">Submit</button>
+							<input type="text" id="meme-input" class="form-control" placeholder="Add a Meme">
+						</div>
+					</form>
 				</div>
-				<div class="col-md-9 mt-2">
-					<div id="buttons"></div>
-					<div class="text-center ui-widget mt-2">
-						<form id="form">
-							<label for="meme-input">Add a Meme</label><br>
-							<input type="text" id="meme-input">
-							<input type="submit" id="add-meme" value="Submit" class="submit-primary">
-						</form>
-					</div>
-					<div id="images"></div>
-				</div>
-				<div class="col-md-3 mt-2">
-					<nav class="giphy-sidebar hidden-sm hidden-xs affix-top">
-						<ul class="nav giphy-sidenav">
-							<li class="active"><a href="#">Home</a></li>
-						  	<li><a href="#">Profile</a></li>
-						  	<li><a href="#">Messages</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
+		  	</div>
+		</nav>
+		<div id="images"></div>
+		<div id="buttons"></div>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	    <!-- Latest compiled and minified JavaScript -->
