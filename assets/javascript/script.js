@@ -29,6 +29,7 @@ $.get(memeAPI, function(res){
 		memes.push(res.data.memes[i].name);
 	}
 	renderButtons();
+	autoComplete(memes);
 });
 // displayMemeGiphys function re-renders the HTML to display the appropriate content
 function displayMemeGiphys() {
@@ -81,3 +82,9 @@ $("#add-meme").on("click", function(event) {
 $(document).on("click", ".meme", displayMemeGiphys);
 // Adding click event listeners to all elements with a class of "still"
 $(document).on("click", ".still", stillToGif);
+// Auto complete 
+function autoComplete(memeArray){
+	$("#meme-input").autocomplete({
+		source: memeArray
+	});
+}
