@@ -1,6 +1,7 @@
 //Placeholder for buttons
 var memeAPI = "https://api.imgflip.com/get_memes";
 var memes = [];
+var unusedMemes = [];
 var bootstrapClasses = {
 	buttons: ['btn-default', 'btn-primary', 'btn-success', 'btn-info', 'btn-warning', 'btn-danger']
 }
@@ -25,11 +26,16 @@ function renderButtons() {
 }
 // Using the memeAPI to load our initial array
 $.get(memeAPI, function(res){
-	for (i=0;i<10;i++){
-		memes.push(res.data.memes[i].name);
+	for (i=0;i<res.data.memes.length;i++){
+		if(i<10){
+			memes.push(res.data.memes[i].name);
+		}
+		else {
+			unusedMemes.push(res.data.memes[i].name);
+		}
 	}
 	renderButtons();
-	autoComplete(memes);
+	autoComplete(unusedMemes);
 });
 // displayMemeGiphys function re-renders the HTML to display the appropriate content
 function displayMemeGiphys() {
@@ -59,10 +65,11 @@ function stillToGif(){
 	var still = $(this).attr('data-still');
 	var gif = $(this).attr('data-gif');
 	if(gif === $(this).attr('src')){
+		//Turns it off
 		$(this).attr('src', still)
 	}
 	else {
-		console.log('I am turning it on')
+		//Turns it on
 		$(this).attr('src', gif)
 	}
 }
@@ -71,12 +78,23 @@ $("#add-meme").on("click", function(event) {
 	event.preventDefault();
 	// This line of code will grab the input from the textbox
 	var meme = $("#meme-input").val().trim();
-
-	// The meme from the textbox is then added to our array
-	memes.push(meme);
-	console.log(memes);
-	// Calling renderButtons which handles the processing of our meme array
-	renderButtons();
+	// This makes sure that only unique values are added
+	if($.inArray(meme, memes) === -1) {
+		// The meme from the textbox is then added to our array
+		memes.push(meme);
+		console.log(memes);
+		// Calling renderButtons which handles the processing of our meme array
+		renderButtons();
+		// This makes sure the search results don't include values already used
+		if($.inArray(meme, unusedMemes) !== -1) {
+			unusedMemes = jQuery.grep(unusedMemes, function(value) {
+  				return value != meme;
+			});
+			autoComplete(unusedMemes);
+		}
+	}
+	// resets the input field
+	$("#form")[0].reset();
 });
 // Adding click event listeners to all elements with a class of "meme"
 $(document).on("click", ".meme", displayMemeGiphys);
