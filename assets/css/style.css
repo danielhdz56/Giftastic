@@ -2,22 +2,19 @@ body {
 	background: black;
 	color: whitesmoke;
 }
+/* Vertical Navbar */
+@media (min-width: 768px) {
+	.giphy-sidebar {
+		padding-right: 20px;
+	}
+}
 #meme-input {
 	color: black;
-}
-.w-100 {
-	width: 100%;
-}
-.m-0a {
-	margin: 0 auto;
 }
 .submit-primary {
 	background: #337ab7;
 	border-color: #2e6da4;
 	color: #fff;
-}
-.mt-2 {
-	margin-top: 2rem;
 }
 .form-input {
 	width: 200px;
@@ -27,4 +24,14 @@ body {
 	height: 200px;
 	display: block;
 	max-width: 100%;
+}
+/* Helper Classes */
+.w-100 {
+	width: 100%;
+}
+.m-0a {
+	margin: 0 auto;
+}
+.mt-2 {
+	margin-top: 2rem;
 }

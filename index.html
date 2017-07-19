@@ -13,21 +13,28 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12">
-					<h1 class="text-center">Giftastic</h1>
+				<div class="col-md-12">
+					<h1>Giftastic</h1>
 				</div>
-				<div class="col-xs-12">
+				<div class="col-md-9 mt-2">
 					<div id="buttons"></div>
-				</div>
-				<div class="col-xs-12 mt-2 text-center ui-widget">
-					<form id="form">
-						<label for="meme-input">Add a Meme</label><br>
-						<input type="text" id="meme-input">
-						<input type="submit" id="add-meme" value="Submit" class="submit-primary">
-					</form>
-				</div>
-				<div class="col-xs-12 mt-2">
+					<div class="text-center ui-widget mt-2">
+						<form id="form">
+							<label for="meme-input">Add a Meme</label><br>
+							<input type="text" id="meme-input">
+							<input type="submit" id="add-meme" value="Submit" class="submit-primary">
+						</form>
+					</div>
 					<div id="images"></div>
+				</div>
+				<div class="col-md-3 mt-2">
+					<nav class="giphy-sidebar hidden-sm hidden-xs affix-top">
+						<ul class="nav giphy-sidenav">
+							<li class="active"><a href="#">Home</a></li>
+						  	<li><a href="#">Profile</a></li>
+						  	<li><a href="#">Messages</a></li>
+						</ul>
+					</nav>
 				</div>
 			</div>
 		</div>
