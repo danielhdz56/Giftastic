@@ -15,6 +15,9 @@ p, li {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
+.navbar-brand {
+	font-size: 20px;
+}
 .navbar-form {
     padding: 0;
 }
