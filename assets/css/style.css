@@ -1,10 +1,17 @@
+html {
+	background: #fff;
+}
 body {
-	background: black;
 	color: whitesmoke;
+}
+p, li {
+	color: black;
 }
 /* Navbar */
 .navbar {
-	border-radius: 0;
+	border: none;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 .navbar-form {
     padding: 0;
@@ -23,18 +30,21 @@ body {
 	    display: block;
 	    text-align: center;
 	}
-	.form-group {
-		min-width: 600px;
-	}
 	#add-meme {
 		float: right;
 		position: relative;
 		z-index: 6;
+		margin-right: 2rem;
 	}
 	#meme-input {
 		position: absolute;
-		min-width: 600px;
+		width: 90%;
 		color: black;
+		margin-left: 2rem;
+	}
+	#buttons {
+	margin-left: 2rem;
+	margin-right: 2rem;
 	}
 }
 @media screen and (min-width: 768px){
@@ -55,17 +65,23 @@ body {
 .still {
 	height: 200px;
 	display: block;
-	max-width: 100%;
+	width: 350px;
 }
 /* Aside and Section */
+@media screen and (max-width: 1024px){
+	#buttons {
+		margin-bottom: 2rem;
+	}
+}
 @media screen and (min-width: 1024px){
 	#images {
-	width: 70%;
-	float: left;
-}
-#buttons {
-	width: 30%;
-	float: right;
+		width: 70%;
+		float: left;
+	}
+	#buttons {
+		width: 30%;
+		float: right;
+	}
 }
 
 /* Helper Classes */
