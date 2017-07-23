@@ -71,6 +71,7 @@ function displayMemeGiphys() {
 		}
 		else {
 			for(i=0;i<response.data.length;i++) {
+				console.log(response)
 				var column = $('<div>');
 				column.addClass('col-xs-12 col-sm-6');
 				$('#images').append(column);
@@ -79,7 +80,9 @@ function displayMemeGiphys() {
 				image.attr('src', response.data[i].images.original_still.url);
 				image.attr('data-still', response.data[i].images.original_still.url);
 				image.attr('data-gif', response.data[i].images.original.url);
-				$(column).append(image);
+				var rating = $('<h4>');
+				$(rating).append('Rating: ' + response.data[i].rating.toUpperCase());
+				$(column).append(image, rating);
 			}
 		}
 	});
